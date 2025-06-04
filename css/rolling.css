@@ -1,10 +1,13 @@
 :root {
-  --primary: #1b8a6b;
+  --primary: #2a9d8f;
   --secondary: #f5f5f5;
-  --accent: #f9a825;
+  --accent: #f4a261;
   --dark: #333;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -46,6 +49,8 @@ h1, h2, h3 {
 
 .logo {
   font-weight: 700;
+  text-decoration: none;
+  color: inherit;
 }
 
 .nav {
@@ -80,6 +85,7 @@ h1, h2, h3 {
 }
 
 .hero .overlay {
+  animation: fadeInUp 1s ease-out forwards;
   background: rgba(0,0,0,0.4);
   width: 100%;
   padding: 4rem 1rem;
@@ -98,11 +104,13 @@ h1, h2, h3 {
   border-radius: 4px;
   text-decoration: none;
   border: none;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
   background: var(--accent);
-  color: #000;
+  color: #333;
+  transform: translateY(-2px);
 }
 
 .services {
@@ -165,6 +173,7 @@ h1, h2, h3 {
 
 .contact-form {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   margin-bottom: 1rem;
 }
@@ -174,11 +183,31 @@ h1, h2, h3 {
   flex-direction: column;
 }
 
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
 .form-group input,
+.form-group select,
 .form-group textarea {
   padding: .5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.reveal.active {
+  opacity: 1;
+  transform: none;
+  transition: all 0.6s ease-out;
 }
 
 .footer {
