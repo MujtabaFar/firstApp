@@ -1,3 +1,4 @@
+// Update footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const toggle = document.querySelector('.nav-toggle');
@@ -23,6 +24,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     nav.classList.remove('show');
-    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    document
+      .querySelector(link.getAttribute('href'))
+      .scrollIntoView({ behavior: 'smooth' });
   });
 });
